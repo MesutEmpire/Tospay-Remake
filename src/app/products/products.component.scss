@@ -1,9 +1,23 @@
-.bold{
-    font-weight: bold;
+.bold {
+  font-weight: bold;
 }
-.large{
-    font-size: larger;
+.large {
+  font-size: larger;
 }
-.bolder{
-    font-weight: bolder;
+.bolder {
+  font-weight: bolder;
+}
+#backgroundColor {
+  background-color: #eaf6fc;
+  height: 60vh;
+  padding-top: 7em;
+  align-items: center;
+}
+.card {
+  height: 40vh;
+}
+h5 {
+  padding-bottom: 30px;
+  color: #043f8c;
+  line-height: 1.13;
 }
