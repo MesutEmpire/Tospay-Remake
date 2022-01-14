@@ -1,0 +1,39 @@
+#storyPageBackground {
+  background-image: url("../../assets/story.svg");
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.containers {
+  margin-left: 6em;
+  margin-right: 2em;
+  margin-bottom: 2em;
+  margin-top: 10em;
+}
+#storyIcon {
+  margin-top: 5em;
+}
+h1 {
+  color: #439cf5;
+  line-height: 1.13;
+  margin: 0 0 30px 0;
+  font-weight: lighter;
+  font-size: x-large;
+}
+h2 {
+  line-height: 1.13;
+  font-size: 3em;
+  font-weight: 600;
+}
+h3 {
+  color: #6fbdd8;
+  border-left: 9px solid #0080ff;
+  padding-left: 30px;
+  font-size: larger;
+  font-weight: 900;
+}
+p{
+  line-height:1.7em;
+  margin-left: 2em;
+  margin-top: 2em;
+}
