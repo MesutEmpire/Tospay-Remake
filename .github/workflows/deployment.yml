@@ -6,12 +6,12 @@ on:
       - "main"
 
 jobs:
-  prequisite:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [13,14.17]
+        node-version: [13, 14.17]
 
     steps:
       - name: Checkout
@@ -26,9 +26,9 @@ jobs:
         id: cache-nodemodules
         uses: actions/cache@v2
         env:
-           cache-name: cache-node-modules
+          cache-name: cache-node-modules
         with:
-         # caching node_modules
+          # caching node_modules
           path: node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
@@ -37,7 +37,7 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install and build
-        run: npm install && npm run gh-build && cp docs/index.html docs/404.html 
+        run: npm install && npm run gh-build && cp docs/index.html docs/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v1
