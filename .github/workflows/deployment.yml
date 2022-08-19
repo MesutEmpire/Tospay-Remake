@@ -67,17 +67,17 @@ jobs:
       - name: Build
         run: |
           npm run build -- --prod
-      - name: Lint
-        run: |
-          npm run lint
-      - name: Test
-        run: |
-          npm run test -- --prod
+      # - name: Lint
+      #   run: |
+      #     npm run lint
+      # - name: Test
+      #   run: |
+      #     npm run test -- --prod
       - name: Conventional Changelog Action
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
         with:
-          github-token: ${{ secrets.TOKEN_GITHUB_ACTION }}
+          github-token: ${{ secrets.TOKEN}}
           output-file: "false"
 
       - name: Create Release
