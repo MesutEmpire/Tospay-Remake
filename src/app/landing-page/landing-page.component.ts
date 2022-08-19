@@ -10,6 +10,7 @@ export class LandingPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log("This is the landing page ..... Welcome Here Guys")
   }
 
 }
