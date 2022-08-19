@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "gh-build": "ng build --output-path docs --base-href /paynet/",
     "test": "ng test",
-    "deploy": "ng deploy --base-href=/paynet/"
+    "deploy": "ng deploy --base-href=/TosPay-Remake/"
   },
   "private": true,
   "dependencies": {
