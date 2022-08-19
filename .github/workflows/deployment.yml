@@ -1,27 +1,27 @@
-name: Deployment to Github Pages
+# name: Deployment to Github Pages
 
-on:
-  push:
-    branches:
-      - "main"
+# on:
+#   push:
+#     branches:
+#       - "main"
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.17]
+#     strategy:
+#       matrix:
+#         node-version: [14.17]
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v1
 
-      - name: Install and build
-        run: npm install && npm run gh-build && cp dist/paynet/index.html dist/paynet/404.html
+#       - name: Install and build
+#         run: npm install && npm run gh-build && cp dist/paynet/index.html dist/paynet/404.html
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.1
-        with:
-          branch: gh-pages #The branch the action should deploy to.
-          folder: ./dist/paynet #The folder the action should deploy.
+#       - name: Deploy
+#         uses: JamesIves/github-pages-deploy-action@4.1.1
+#         with:
+#           branch: gh-pages #The branch the action should deploy to.
+#           folder: ./dist/paynet #The folder the action should deploy.
