@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "gh-build": "ng build --output-path docs --base-href /Paynet/",
+    "gh-build": "ng build --output-path docs --base-href /paynet/",
     "test": "ng test"
   },
   "private": true,
