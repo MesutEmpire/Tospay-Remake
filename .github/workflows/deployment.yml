@@ -1,37 +1,63 @@
-name: Deployment to Github Pages
+# name: Deployment to Github Pages
+
+# on:
+#   push:
+#     branches:
+#       - "main"
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     strategy:
+#       matrix:
+#         node-version: [14.17]
+
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v1
+
+#       - name: Install and build
+#         run: npm install && npm run gh-build && cp docs/index.html docs/404.html
+
+#       # - name: Deploy
+#       #   uses: JamesIves/github-pages-deploy-action@4.1.1
+#       #   with:
+#       #     branch: gh-pages #The branch the action should deploy to.
+#       #     folder: docs #The folder the action should deploy.
+
+name: GitHub Pages
 
 on:
   push:
     branches:
-      - "main"
+      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.17]
-
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
-      - name: Install and build
-        run: npm install && npm run gh-build && cp docs/index.html docs/404.html
-
-      # - name: Deploy
-      #   uses: JamesIves/github-pages-deploy-action@4.1.1
-      #   with:
-      #     branch: gh-pages #The branch the action should deploy to.
-      #     folder: docs #The folder the action should deploy.
-
-      - uses: actions/checkout@v2
-      - name: All things angular
-        uses: AhsanAyaz/angular-deploy-gh-pages-actions@1.x
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          github_access_token: ${{ secrets.ACCESS_TOKEN }} # see the Configuration section for how you can create secrets
-          build_configuration: production # The build environment for the app. please look configurations in your angular.json
-          base_href: /paynet/ # make sure this corresponds to https://<your_username>.github.io/<base_href>/
-          deploy_branch: gh-pages # The branch the action should deploy to.
-          angular_dist_build_folder: dist/paynet # The folder where your project is supposed to be after running ng build by the action.
+          node-version: "16"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test:headless
+
+      - name: Build
+        run: npm run build:prod
+
+      - name: Deploy
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          publish_dir: dist/paynet
+          enable_jekyll: true
