@@ -3,7 +3,7 @@ name: Deployment to Github Pages
 on:
   push:
     branches:
-      - "master"
+      - "main"
 
 jobs:
   build:
@@ -12,16 +12,16 @@ jobs:
     strategy:
       matrix:
         node-version: [14.17]
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v1
 
       - name: Install and build
         run: npm install && npm run gh-build && cp dist/index.html dist/404.html
-      
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: ./dist/Paynet # The folder the action should deploy.        
+          folder: ./dist/Paynet # The folder the action should deploy.
