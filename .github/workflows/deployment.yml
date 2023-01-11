@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Node.js 16
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org
@@ -37,7 +37,8 @@ jobs:
         run: npm i -g @angular/cli@15.0.5
 
       - name: Install and build
-        run: npm ci && npm run build -- --prod --base-href "https://MesutEmpire.github.io/TosPay-Remake/"
+        run: npm ci && ng update @angular/cli && ng build --configuration=production --base-href https://MesutEmpire.github.io/TosPay-Remake/
+
       
   deploy:
     runs-on: ubuntu-latest
