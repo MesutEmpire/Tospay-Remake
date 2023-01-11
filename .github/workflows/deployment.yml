@@ -43,6 +43,8 @@ jobs:
     needs: install
     steps:
       - name: Install and build
+        with:
+          script: ls -al
         run: npm install && ng build --configuration=production --base-href https://MesutEmpire.github.io/TosPay-Remake/
 
   deploy:
