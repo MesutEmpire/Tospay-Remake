@@ -74,6 +74,10 @@ jobs:
         git add .
         git commit -m "Deploy"
         git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/MesutEmpire/TosPay-Remake.git master:gh-pages
+
+
+
+        
 # name: Deployment to Github Pages
 
 # on:
