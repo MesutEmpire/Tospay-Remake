@@ -69,10 +69,11 @@ jobs:
         name: build-output
     - run: |
         git init
+        git config user.name "Github Actions"
+        git config user.email "actions@github.com"
         git add .
-        git commit -m "deploying"
+        git commit -m "Deploy"
         git push -f https://${{ secrets.TOKEN }}@github.com/MesutEmpire/TosPay-Remake.git master:gh-pages
-
 # name: Deployment to Github Pages
 
 # on:
