@@ -39,7 +39,6 @@ jobs:
         run: npm i -g @angular/cli@15.0.5
         
   build:
-    runs-on: ubuntu-latest
     needs: install
     steps:
       - name: Install and build
