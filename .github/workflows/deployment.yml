@@ -69,17 +69,12 @@ jobs:
         name: build-output
 
     - name: Push to Branch
-      env:
-        ACCESS: ${{ secrets.ACCESS }}
-      run: |
-        git init
-        git config user.name "Github Actions"
-        git config user.email "actions@github.com"
-        git add .
-        git commit -m "Deploy"
-        git branch gh-pages
-        git remote add origin https://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@github.com/MesutEmpire/TosPay-Remake.git
-        git push -f origin gh-pages
+      if: success()
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS }}
+        BRANCH: gh-pages
+        FOLDER: ./
 
      
     # - name: Push to Branch
