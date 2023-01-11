@@ -41,7 +41,7 @@ jobs:
     needs: install
     steps:
       - name: Install and build
-        run: npm ci && ng build --configuration=production --base-href https://MesutEmpire.github.io/TosPay-Remake/
+        run: npm install --only=production && ng build --configuration=production --base-href https://MesutEmpire.github.io/TosPay-Remake/
 
   deploy:
     runs-on: ubuntu-latest
