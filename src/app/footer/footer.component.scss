@@ -1,0 +1,29 @@
+#footerBackground {
+  background-color: #0c1e30;
+  padding: 100px 150px 50px;
+}
+h2 {
+  color: #6fbdd8;
+  margin-bottom: 30px;
+  font-weight: 900;
+  font-size: large;
+}
+.d-flex {
+  flex-direction: column;
+}
+#logo {
+  margin-top: 3em;
+}
+#scrollTop {
+  height: 40px;
+  display: flex;
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+  float: right;
+  z-index: 1000;
+  cursor: pointer;
+  animation: Layout_fadeIn__1cFu1 0.3s;
+  transition: opacity 0.4s;
+  opacity: 0.5;
+}
