@@ -78,7 +78,7 @@ jobs:
         git add .
         git commit -m "Deploy"
         git branch gh-pages
-        git remote add origin https://github.com/MesutEmpire/TosPay-Remake.git
+        git remote add origin https://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@github.com/MesutEmpire/TosPay-Remake.git
         git push -f origin gh-pages
 
      
