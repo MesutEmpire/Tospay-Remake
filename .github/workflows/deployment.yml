@@ -18,7 +18,9 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org
-          add-path: true
+
+      - name: Add Node to PATH
+        run: echo 'export PATH="$PATH:/usr/local/bin"' >> $GITHUB_ENV
 
       - name: Cache node modules
         id: cache-nodemodules
@@ -41,7 +43,10 @@ jobs:
     needs: install
     steps:
       - name: Install and build
-        run: npm install --only=production && ng build --configuration=production --base-href https://MesutEmpire.github.io/TosPay-Remake/
+        run: |
+        ls -al
+        npm install 
+        ng build --configuration=production --base-href https://MesutEmpire.github.io/TosPay-Remake/
 
   deploy:
     runs-on: ubuntu-latest
