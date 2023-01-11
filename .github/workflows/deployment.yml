@@ -67,7 +67,11 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: build-output
-    - run: ls -al
+    - run: |
+        git init
+        git add .
+        git commit -m "deploying"
+        git push -f https://${{ secrets.TOKEN }}@github.com/MesutEmpire/TosPay-Remake.git master:gh-pages
 
 # name: Deployment to Github Pages
 
