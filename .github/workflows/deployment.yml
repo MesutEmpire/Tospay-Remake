@@ -68,7 +68,7 @@ jobs:
       with:
         name: build-output
     - run: |
-        echo ${{secrets.GITHUB_TOKEN}}
+        echo ${{secrets.TOKEN}}
         git init
         git config user.name "Github Actions"
         git config user.email "actions@github.com"
