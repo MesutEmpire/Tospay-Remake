@@ -67,16 +67,18 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: build-output
-      env:
+     
+    - name: Push to Branch
+       env:
         ACCESS: ${{ secrets.ACCESS }}
       run: |
-        git init
-        git config user.name "Github Actions"
-        git config user.email "actions@github.com"
-        git add .
-        git commit -m "Deploy"
-        git remote add origin https://$"ACCESS"@github.com/MesutEmpire/TosPay-Remake.git
-        git push -f origin gh-pages
+          git init
+          git config user.name "Github Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Deploy"
+          git remote add origin https://$"ACCESS"@github.com/MesutEmpire/TosPay-Remake.git
+          git push -f origin gh-pages
         
 
 
