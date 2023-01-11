@@ -39,19 +39,33 @@ jobs:
       - name: Install and build
         run: npm ci && ng build --configuration=production --base-href https://MesutEmpire.github.io/TosPay-Remake/
 
-      
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        if: success()
-        id: deployment
-        uses: actions/github-script@v6.3.3
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
         with:
-          script: |
-            sh -c "ls -al"
+          name: build-output
+          path: dist/paynet
+
+      
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       if: success()
+  #       id: deployment
+  #       uses: actions/github-script@v6.3.3
+  #       with:
+  #         script: |
+  #           sh -c "ls -al"
             
+
+  deploy:
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: build-output
+    - run: sh -c "ls -al build-output"
 
 # name: Deployment to Github Pages
 
