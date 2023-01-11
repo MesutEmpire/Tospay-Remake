@@ -49,12 +49,9 @@ jobs:
         id: deployment
         uses: actions/github-script@v6.3.3
         with:
-          script: |
-            cd dist/paynet
-            git init
-            git add .
-            git commit -m "deploying"
-            
+          script: console.log("Hello")
+
+
 
 
 # name: Deployment to Github Pages
