@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "Paynet"
+  "defaultProject": "Paynet",
+  "cli": {
+    "analytics": false
+  }
 }
