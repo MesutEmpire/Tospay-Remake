@@ -69,8 +69,7 @@ jobs:
         name: build-output
       env:
         ACCESS: ${{ secrets.ACCESS }}
-    - run: |
-        cat $HOME/secrets
+      run: |
         git init
         git config user.name "Github Actions"
         git config user.email "actions@github.com"
