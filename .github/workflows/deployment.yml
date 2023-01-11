@@ -1,7 +1,8 @@
 name: Deployment to Github Pages
 
 on:
-  push:
+  release:
+    types: [published]
     branches:
       - main
 
@@ -81,92 +82,3 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
         BRANCH: gh-pages
         FOLDER: ./
-
-     
-    # - name: Push to Branch
-    #    env:
-    #       ACCESS: ${{ secrets.ACCESS }}
-    #   run: |
-    #       git init
-    #       git config user.name "Github Actions"
-    #       git config user.email "actions@github.com"
-    #       git add .
-    #       git commit -m "Deploy"
-    #       git remote add origin https://$"ACCESS"@github.com/MesutEmpire/TosPay-Remake.git
-    #       git push -f origin gh-pages
-        
-
-
-
-        
-# name: Deployment to Github Pages
-
-# on:
-#   push:
-#     branches:
-#       - "main"
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-
-#     strategy:
-#       matrix:
-#         node-version: [16.x]
-
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v2
-
-#       - name: Use Node.js ${{ matrix.node-version }}
-#         uses: actions/setup-node@v1
-#         with:
-#           node-version: ${{ matrix.node-version }}
-
-#       - name: Cache node modules
-#         id: cache-nodemodules
-#         uses: actions/cache@v2
-#         env:
-#           cache-name: cache-node-modules
-#         with:
-#           # caching node_modules
-#           path: node_modules
-#           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-#           restore-keys: |
-#             ${{ runner.os }}-build-${{ env.cache-name }}-
-#             ${{ runner.os }}-build-
-#             ${{ runner.os }}-
-
-#       - name: Install and build
-#         run: npm install && npm run gh-build && cp docs/index.html docs/404.html
-
-#       - name: Setup Pages
-#         uses: actions/configure-pages@v1
-
-#       - name: Build with Jekyll
-#         uses: actions/jekyll-build-pages@v1
-#         with:
-#           source: ./
-#           destination: ./_site
-
-#       - name: Upload artifact
-#         uses: actions/upload-pages-artifact@v1
-
-#   deploy:
-#     environment:
-#       name: github-pages
-#       url: ${{ steps.deployment.outputs.page_url }}
-
-#     permissions:
-#       id-token: write
-#       pages: write
-
-#     runs-on: ubuntu-latest
-#     needs: build
-#     steps:
-#       - name: Deploy to GitHub Pages
-#         if: success()
-#         id: deployment
-#         uses: actions/deploy-pages@v1
-#         env:
-#           GITHUB_TOKEN: ${{secrets.TOKEN}}
