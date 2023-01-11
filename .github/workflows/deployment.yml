@@ -37,7 +37,7 @@ jobs:
         run: npm i -g @angular/cli@15.0.5
 
       - name: Install and build
-        run: npm ci && ng update @angular/cli && ng build --configuration=production --base-href https://MesutEmpire.github.io/TosPay-Remake/
+        run: npm ci && ng build --configuration=production --base-href https://MesutEmpire.github.io/TosPay-Remake/
 
       
   deploy:
