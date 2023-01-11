@@ -40,7 +40,7 @@ jobs:
         run: npm ci && ng build --configuration=production --base-href https://MesutEmpire.github.io/TosPay-Remake/
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: build-output
           path: dist/paynet
@@ -64,10 +64,10 @@ jobs:
     needs: build
     steps:
     - name: Download artifact
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: build-output
-    - run: sh -c "ls -al build-output"
+    - run: ls -al
 
 # name: Deployment to Github Pages
 
