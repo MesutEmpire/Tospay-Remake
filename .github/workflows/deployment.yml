@@ -49,10 +49,9 @@ jobs:
         id: deployment
         uses: actions/github-script@v6.3.3
         with:
-          script: console.log("Hello")
-
-
-
+          script: |
+            sh -c "ls -al"
+            
 
 # name: Deployment to Github Pages
 
