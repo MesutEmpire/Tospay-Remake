@@ -60,6 +60,10 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: build-output
+        path: build-output
+
+    - name: Display structure of downloaded files
+      run: ls -R
 
     - name: Push to Branch
       if: success()
