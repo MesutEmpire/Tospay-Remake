@@ -60,7 +60,6 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: build-output
-        path: build-output
 
     - name: Display structure of downloaded files
       run: ls -R
@@ -71,4 +70,4 @@ jobs:
       with:
         ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: 'build-output'
+        FOLDER: 'paynet'
