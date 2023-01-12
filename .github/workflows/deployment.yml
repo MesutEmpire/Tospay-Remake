@@ -69,5 +69,4 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
         ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: 'paynet'
+        folder: 'paynet'
